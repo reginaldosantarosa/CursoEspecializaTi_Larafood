@@ -1,16 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', "Detalhes do plano {$plan->name}")
+@section('title', "Detalhes do plano {$plano->nome}")
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('plans.index') }}">Planos</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('plans.show', $plan->url) }}">{{ $plan->name }}</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('details.plan.index', $plan->url) }}" class="active">Detalhes</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('planos.index') }}">Planos</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('planos.show', $plano->url) }}">{{ $plano->nome }}</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('detalhes.plano.index', $plano->url) }}" class="active">Detalhes</a></li>
     </ol>
-
-    <h1>Detalhes do plano {{ $plan->name }} <a href="{{ route('details.plan.create', $plan->url) }}" class="btn btn-dark">ADD</a></h1>
+    <h1>Detalhes do plano {{ $plano->nome }} <a href="{{ route('detalhes.plano.create', $plano->url) }}" class="btn btn-dark">ADD</a></h1>
 @stop
 
 @section('content')
@@ -27,14 +26,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($details as $detail)
+                    @foreach ($detalhes as $detalhe)
                         <tr>
                             <td>
-                                {{ $detail->name }}
+                                {{ $detalhe->nome }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('details.plan.edit', [$plan->url, $detail->id]) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('details.plan.show', [$plan->url, $detail->id]) }}" class="btn btn-warning">VER</a>
+                                <a href="{{ route('detalhes.plano.edit', [$plano->url, $detalhe->id]) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('detalhes.plano.show', [$plano->url, $detalhe->id]) }}" class="btn btn-warning">VER</a>
                             </td>
                         </tr>
                     @endforeach
@@ -43,9 +42,9 @@
         </div>
         <div class="card-footer">
             @if (isset($filters))
-                {!! $details->appends($filters)->links() !!}
+                {!! $detalhes->appends($filters)->links() !!}
             @else
-                {!! $details->links() !!}
+                {!! $detalhes->links() !!}
             @endif
         </div>
     </div>

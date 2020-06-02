@@ -17,4 +17,9 @@ class Plano extends Model
 
         return $resultados;
     }
+
+    public function detalhes()
+    {
+        return $this->hasMany(DetalhesPlano::class); /*um plano pertennce unico detlahe*/
+    }
 }

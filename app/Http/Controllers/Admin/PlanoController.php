@@ -58,13 +58,13 @@ class PlanoController extends Controller
 
         if (!$plano)
             return redirect()->back();
-   /**
+
         if ($plano->detalhes->count() > 0) {
             return redirect()
                 ->back()
                 ->with('error', 'Existem detalhes vinculados a esse plano, portanto não pode deletar');
         }
-        */
+
         $plano->delete();
 
         return redirect()->route('planos.index');

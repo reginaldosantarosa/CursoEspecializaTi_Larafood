@@ -39,7 +39,7 @@
                             R$ {{ number_format($plano->preco, 2, ',', '.') }}
                         </td>
                         <td style="width=10px;">
-                            {{--<a href="{{ route('details.plan.index', $plan->url) }}" class="btn btn-primary">Detalhes</a>--}}
+                            <a href="{{ route('detalhes.plano.index', $plano->url) }}" class="btn btn-primary">Detalhes</a>
                             <a href="{{ route('planos.edit', $plano->url) }}" class="btn btn-info">Edit</a>
                             <a href="{{ route('planos.show', $plano->url) }}" class="btn btn-warning">VER</a>
                             {{--<a href="{{ route('planos.profiles', $plan->id) }}" class="btn btn-warning"><i class="fas fa-address-book"></i></a>--}}

@@ -77,7 +77,7 @@ class PlanoController extends Controller
         $planos = $this->repositorio->search($request->filter);
 
         return view('admin.paginas.planos.index', [
-            'plans' => $planos,
+            'planos' => $planos,
             'filters' => $filters,
         ]);
     }

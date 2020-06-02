@@ -221,6 +221,12 @@ return [
             //'can'  =>  'profiles',
         ],
 
+        [
+            'text' => 'Permissões',
+            'url'  => 'admin/permissoes',
+            'icon' => 'fas fa-lock'
+        ],
+
     ],
 
     /*

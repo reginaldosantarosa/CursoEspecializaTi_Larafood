@@ -4,7 +4,7 @@ return [
 
     'main_navigation'               => 'ANA MENÜ',
     'blog'                          => 'Blog',
-    'pages'                         => 'Sayfalar',
+    'paginas'                         => 'Sayfalar',
     'account_settings'              => 'HESAP AYARLARI',
     'profile'                       => 'Profil',
     'change_password'               => 'Parolanı değiştir',

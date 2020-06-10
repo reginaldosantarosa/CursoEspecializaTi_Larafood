@@ -37,8 +37,8 @@
                             <td style="width=10px;">
                                 <a href="{{ route('perfis.edit', $perfil->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('perfis.show', $perfil->id) }}" class="btn btn-warning">VER</a>
-                                {{--<a href="{{ route('perfis.permissions', $perfil->id) }}" class="btn btn-warning"><i class="fas fa-lock"></i></a> --}}
-                                {{--<a href="{{ route('perfis.planos', $perfil->id) }}" class="btn btn-info"><i class="fas fa-list-alt"></i></a> --}}
+                                <a href="{{ route('permissoes.perfis', $perfil->id) }}" class="btn btn-warning"><i class="fas fa-lock"></i></a>
+                                <a href="{{ route('perfis.planos', $perfil->id) }}" class="btn btn-info"><i class="fas fa-list-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach

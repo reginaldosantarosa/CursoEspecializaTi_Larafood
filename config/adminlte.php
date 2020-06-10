@@ -218,7 +218,7 @@ return [
             'text' => 'Perfis',
             'url'  => 'admin/perfis',
             'icon' => 'fas fa-address-book',
-            //'can'  =>  'profiles',
+            //'can'  =>  'perfis',
         ],
 
         [

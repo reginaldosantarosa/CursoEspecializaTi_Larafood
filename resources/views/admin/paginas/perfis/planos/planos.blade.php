@@ -1,17 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', "Perfis do plano {$plan->name}")
+@section('title', "Planos do perfil {$perfil->nome}")
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('plans.index') }}">Planos</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('plans.profiles', $plan->id) }}" class="active">Perfis</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('perfis.index') }}">Perfis</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('perfis.planos', $perfil->id) }}" class="active">Planos</a></li>
     </ol>
 
-    <h1>Perfis do plano <strong>{{ $plan->name }}</strong></h1>
-
-    <a href="{{ route('plans.profiles.available', $plan->id) }}" class="btn btn-dark">ADD NOVO PERFIL</a>
+    <h1>Planos do perfil <strong>{{ $perfil->nome }}</strong></h1>
 
 @stop
 
@@ -26,13 +24,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($profiles as $profile)
+                    @foreach ($planos as $plano)
                         <tr>
                             <td>
-                                {{ $profile->name }}
+                                {{ $plano->nome }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('plans.profile.detach', [$plan->id, $profile->id]) }}" class="btn btn-danger">DESVINCULAR</a>
+                                <a href="{{ route('planos.perfis.detach', [$plano->id, $perfil->id]) }}" class="btn btn-danger">DESVINCULAR</a>
                             </td>
                         </tr>
                     @endforeach
@@ -41,9 +39,9 @@
         </div>
         <div class="card-footer">
             @if (isset($filters))
-                {!! $profiles->appends($filters)->links() !!}
+                {!! $planos->appends($filters)->links() !!}
             @else
-                {!! $profiles->links() !!}
+                {!! $planos->links() !!}
             @endif
         </div>
     </div>

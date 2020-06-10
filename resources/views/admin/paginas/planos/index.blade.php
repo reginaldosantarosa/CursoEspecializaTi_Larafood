@@ -42,7 +42,7 @@
                             <a href="{{ route('detalhes.plano.index', $plano->url) }}" class="btn btn-primary">Detalhes</a>
                             <a href="{{ route('planos.edit', $plano->url) }}" class="btn btn-info">Edit</a>
                             <a href="{{ route('planos.show', $plano->url) }}" class="btn btn-warning">VER</a>
-                            {{--<a href="{{ route('planos.profiles', $plan->id) }}" class="btn btn-warning"><i class="fas fa-address-book"></i></a>--}}
+                            <a href="{{ route('planos.perfis', $plano->id) }}" class="btn btn-warning"><i class="fas fa-address-book"></i></a>
                         </td>
                     </tr>
                 @endforeach

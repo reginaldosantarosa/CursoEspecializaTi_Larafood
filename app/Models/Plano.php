@@ -22,4 +22,31 @@ class Plano extends Model
     {
         return $this->hasMany(DetalhesPlano::class); /*um plano pertennce unico detlahe*/
     }
+
+
+    public function perfisDisponiveis($filter = null)
+    {
+        $perfis = Perfil::whereNotIn('perfils.id', function($query) {
+            $query->select('perfil_plano.perfil_id');
+            $query->from('perfil_plano');
+            $query->whereRaw("perfil_plano.plano_id={$this->id}");
+        })
+            ->where(function ($queryFilter) use ($filter) {
+                if ($filter)
+                    $queryFilter->where('perfils.nome', 'LIKE', "%{$filter}%");
+            })
+            ->paginate();
+
+        return $perfis;
+    }
+
+
+    public function perfis()
+    {
+        return $this->belongsToMany(Perfil::class);
+    }
+
+
+
+
 }

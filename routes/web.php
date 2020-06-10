@@ -4,16 +4,38 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')
     ->namespace('Admin')
- //   ->middleware('auth')
+    ->middleware('auth')
     ->group(function() {
 
 
+     /**
+      * Plano x Perfil
+      */
+     Route::get('planos/{id}/perfil/{idPerfil}/detach', 'ACL\PlanoPerfilController@detachPerfilPlano')->name('planos.perfis.detach');
 
-                 /**
-                  * Routes Permissions
-                  */
-                 Route::any('permissoes/search', 'ACL\PermissaoController@search')->name('permissoes.search');
-                 Route::resource('permissoes', 'ACL\PermissaoController');
+
+
+     Route::post('planos/{id}/perfis', 'ACL\PlanoPerfilController@attachPerfilPlano')->name('planos.perfis.attach');
+     Route::any('planos/{id}/perfis/create', 'ACL\PlanoPerfilController@perfisDisponiveis')->name('planos.perfis.disponiveis');
+     Route::get('planos/{id}/perfis', 'ACL\PlanoPerfilController@perfis')->name('planos.perfis');
+     Route::get('perfis/{id}/planos', 'ACL\PlanoPerfilController@planos')->name('perfis.planos');
+
+
+      //Permissao x Perfil
+
+     Route::get('perfis/{id}/permissao/{idPermissao}/detach', 'ACL\PermissaoPerfilController@detachPermissaoPerfil')->name('perfis.permissoes.detach');
+     Route::post('perfis/{id}/permissoes', 'ACL\PermissaoPerfilController@attachPermissaoPerfil')->name('perfis.permissoes.attach');
+     Route::any('perfis/{id}/permissoes/create', 'ACL\PermissaoPerfilController@permissoesDisponiveis')->name('perfis.permissoes.disponiveis');
+
+     Route::get('perfis/{id}/permissoes', 'ACL\PermissaoPerfilController@permissoes')->name('permissoes.perfis');
+     Route::get('permissoes/{id}/perfil', 'ACL\PermissaoPerfilController@perfis')->name('perfis.permissoes');
+
+
+     /**
+      * Routes Permissions
+      */
+     Route::any('permissoes/search', 'ACL\PermissaoController@search')->name('permissoes.search');
+     Route::resource('permissoes', 'ACL\PermissaoController');
 
 
 
@@ -63,3 +85,10 @@ Route::post('plans/{url}/details', 'DetailPlanController@store')->name('details.
 Route::get('plans/{url}/details', 'DetailPlanController@index')->name('details.plan.index');
 
  */
+
+Auth::routes(['register'=>false]);
+//Auth::routes(['register'=false) ; ele desabilita a rosta padrão e register
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/','Site\SiteController@index')->name('site.home');
+

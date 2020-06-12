@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
+use App\Services\EmpresaService;
+use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -52,22 +54,47 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6','max:16', 'confirmed'],
+            'cnpj'=>['required','unique:empresas'],
+            'empresa'=>['required','unique:empresas,nome'],
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
+
     protected function create(array $data)
     {
-        return User::create([
+        if (!$plano = session('plano')) {
+            return redirect()->route('site.home');
+        }
+
+        $empresaService = app(EmpresaService::class);
+        $user = $empresaService->make($plano, $data);
+      //event(new TenantCreated($user));
+
+        return $user;
+
+          /*
+        $empresa = $plano->empresas()->create([
+            'cnpj' => $data['cnpj'],
+            'nome' => $data['empresa'],
+            'url' => Str::kebab($data['empresa']),
+            'email' => $data['email'],
+
+            'inscricao' => now(),
+            'expira_acesso' => now()->addDays(7),
+        ]);
+
+        $user = $empresa->users()->create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => bcrypt($data['password']),
         ]);
+
+        return $user;
+
+          */
+
+
+
     }
 }

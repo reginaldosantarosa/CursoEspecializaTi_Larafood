@@ -46,7 +46,10 @@ class Plano extends Model
         return $this->belongsToMany(Perfil::class);
     }
 
-
+    public function empresas()
+    {
+        return $this->hasMany(Empresa::class);
+    }
 
 
 }

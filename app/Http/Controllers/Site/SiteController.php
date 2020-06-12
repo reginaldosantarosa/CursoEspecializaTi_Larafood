@@ -18,17 +18,15 @@ class SiteController extends Controller
     }
 
 
-    /*
     public function plano($url)
     {
-        if (!$plano = Plan:o:where('url', $url)->first()) {
+        if (!$plano = Plano::where('url', $url)->first()) {
             return redirect()->back();
         }
 
         session()->put('plano', $plano);
 
-        return redirect()->route('register');
+        return redirect()->route('register'); //padaro do Laravael
     }
-    */
 
 }

@@ -86,9 +86,8 @@ Route::get('plans/{url}/details', 'DetailPlanController@index')->name('details.p
 
  */
 
-Auth::routes(['register'=>false]);
-//Auth::routes(['register'=false) ; ele desabilita a rosta padrão e register
+Auth::routes();
+//Auth::routes(['register'=false) ; ele desabilita a rosta padrão que é register
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('plano/{url}','Site\SiteController@plano')->name('plano.inscricao');
 Route::get('/','Site\SiteController@index')->name('site.home');
-

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Empresa;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -14,16 +15,14 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-        User::create([
-            'name'      => 'Carlos Ferreira',
-            'email'     => 'puc@puc.com.br',
-            'password'  => bcrypt('123456'),
+        $empresa = Empresa::first();
+
+        $empresa->users()->create([
+            'name' => 'Reginaldo',
+            'email' => 'reginaldo_00@hotmail.com',
+            'password' => bcrypt('123456'),
         ]);
 
-        User::create([
-            'name'      => 'Reginaldo',
-            'email'     => 'reginaldo_00@hotmail.com',
-            'password'  => bcrypt('123456'),
-        ]);
+
     }
 }

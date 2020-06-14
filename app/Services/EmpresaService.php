@@ -28,13 +28,12 @@ class EmpresaService
             'url' => Str::kebab($data['empresa']),
             'inscricao' => now(),
             'expira_acesso' => now()->addDays(7),
-
         ]);
     }
 
-    public function storeUser($tenant)
+    public function storeUser($empresa)
     {
-        $user = $tenant->users()->create([
+        $user = $empresa->users()->create([
             'name' => $this->data['name'],
             'email' => $this->data['email'],
             'password' => bcrypt($this->data['password']),

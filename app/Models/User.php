@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','empresa_id',
     ];
 
     /**
@@ -38,9 +39,17 @@ class User extends Authenticatable
     ];
 
 
-    public function empresas()
+    public function empresa()
     {
         return $this->belongsTo(Empresa::class);
     }
+
+
+    //criando um filtro via escopo local
+    public function scopeEmpresaUsuario(Builder $query)
+    {
+        return $query->where('empresa_id', auth()->user()->empresa_id);
+    }
+
 
 }

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'LaraFood',
+    'title' => 'NaldãoFood',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Lara</b>Food',
+    'logo' => '<b>Naldão</b>Food',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -230,14 +230,20 @@ return [
             'text' => 'Usuários',
             'url'  => 'admin/usuarios',
             'icon' => 'fas fa-users',
-           // 'can'  =>  'users',
+              // 'can'  =>  'users',
         ],
 
         [
             'text' => 'Categorias',
             'url'  => 'admin/categorias',
             'icon' => 'fas fa-layer-group',
-           // 'can'  =>  'categories',
+             // 'can'  =>  'categorias',
+        ],
+        [
+            'text' => 'Produtos',
+            'url'  => 'admin/produtos',
+            'icon' => 'fas fa-hamburger',
+             // 'can'  =>  'products',
         ],
 
     ],

@@ -8,9 +8,24 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function() {
 
+            /**
+             * Produto x Categoria
+             */
+            Route::get('produtos/{id}/categoria/{idCategoria}/detach', 'CategoriaProdutoController@detachCategoriasProduto')->name('produtos.categoria.detach');
+            Route::post('produtos/{id}/categorias', 'CategoriaProdutoController@attachCategoriasProduto')->name('produtos.categorias.attach');
+            Route::any('produtos/{id}/categorias/create', 'CategoriaProdutoController@categoriasDisponiveis')->name('produtos.categorias.disponiveis');
+            Route::get('produtos/{id}/categorias', 'CategoriaProdutoController@categorias')->name('produtos.categorias');
+            Route::get('categorias/{id}/produtos', 'CategoriaProdutoController@produtos')->name('categorias.produtos');
+
+
+            //produtoss
+            Route::any('produtos/search', 'ProdutoController@search')->name('produtos.search');
+            Route::resource('produtos', 'ProdutoController');
+
+
             //categorias
-            Route::any('categorias/search', 'CategoriaController@search')->name('categorias.search');
-            Route::resource('categorias', 'CategoriaController');
+             Route::any('categorias/search', 'CategoriaController@search')->name('categorias.search');
+             Route::resource('categorias', 'CategoriaController');
 
 
              //usuarios

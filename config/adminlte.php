@@ -209,6 +209,12 @@ return [
 
     'menu' => [
         [
+            'text' => 'Empresas',
+            'url'  => 'admin/empresas',
+            'icon' => 'fas fa-building',
+            'can'  =>  'empresas',
+        ],
+        [
             'text' => 'Planos',
             'url' => 'admin/planos',
             'icon'=> 'fas fa-list-alt',

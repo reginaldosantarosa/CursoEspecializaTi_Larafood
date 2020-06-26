@@ -13,7 +13,14 @@ Route::prefix('admin')
             });
 
             /**
-             * Routes Tables
+             * Routes empresas
+             */
+            Route::any('empresas/search', 'EmpresaController@search')->name('empresas.search');
+            Route::resource('empresas', 'EmpresaController');
+
+
+        /**
+             * Routes mesas
              */
              Route::any('mesas/search', 'MesaController@search')->name('mesas.search');
              Route::resource('mesas', 'MesaController');

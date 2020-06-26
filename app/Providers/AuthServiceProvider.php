@@ -37,13 +37,12 @@ class AuthServiceProvider extends ServiceProvider
             return $user->id === $object->user_id;
         });
 
-/*
         Gate::before(function (User $user) {
             if ($user->isAdmin()) {
                 return true;
             }
         });
 
-*/
+
     }
 }

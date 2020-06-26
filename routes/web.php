@@ -8,6 +8,16 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function() {
 
+            Route::get('teste', function (){
+                dd(auth()->user()->hasPermissao("Imprimir"));
+            });
+
+            /**
+             * Routes Tables
+             */
+             Route::any('mesas/search', 'MesaController@search')->name('mesas.search');
+             Route::resource('mesas', 'MesaController');
+
             /**
              * Produto x Categoria
              */

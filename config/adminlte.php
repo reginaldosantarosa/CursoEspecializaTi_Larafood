@@ -218,32 +218,40 @@ return [
             'text' => 'Perfis',
             'url'  => 'admin/perfis',
             'icon' => 'fas fa-address-book',
-            //'can'  =>  'perfis',
+            'can'  =>  'perfis',
         ],
 
         [
             'text' => 'Permissões',
             'url'  => 'admin/permissoes',
-            'icon' => 'fas fa-lock'
+            'icon' => 'fas fa-lock',
+            'can'  =>  'permissoes',
         ],
         [
             'text' => 'Usuários',
             'url'  => 'admin/usuarios',
             'icon' => 'fas fa-users',
-              // 'can'  =>  'users',
+             'can'  =>  'usuarios',
         ],
 
         [
             'text' => 'Categorias',
             'url'  => 'admin/categorias',
             'icon' => 'fas fa-layer-group',
-             // 'can'  =>  'categorias',
+            'can'  =>  'categorias',
         ],
         [
             'text' => 'Produtos',
             'url'  => 'admin/produtos',
             'icon' => 'fas fa-hamburger',
-             // 'can'  =>  'products',
+             'can'  =>  'produtos',
+        ],
+
+        [
+            'text' => 'Mesas',
+            'url'  => 'admin/mesas',
+            'icon' => 'fas fa-tablet',
+             'can'  =>  'mesas',
         ],
 
     ],

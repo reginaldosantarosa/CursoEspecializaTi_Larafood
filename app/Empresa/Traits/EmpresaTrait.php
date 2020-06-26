@@ -16,7 +16,6 @@ trait EmpresaTrait
     protected static function boot()
     {
         parent::boot();
-
         static::observe(EmpresaObserver::class);
 
 

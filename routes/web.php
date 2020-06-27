@@ -8,9 +8,30 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function() {
 
-            Route::get('teste', function (){
-                dd(auth()->user()->hasPermissao("Imprimir"));
-            });
+
+             // Role x User
+
+            Route::get('usuarios/{id}/role/{idRole}/detach', 'ACL\RoleUserController@detachRoleUser')->name('usuarios.role.detach');
+            Route::post('usuarios/{id}/roles', 'ACL\RoleUserController@attachRolesUser')->name('usuarios.roles.attach');
+            Route::any('usuarios/{id}/roles/create', 'ACL\RoleUserController@rolesDisponiveis')->name('usuarios.roles.disponiveis');
+            Route::get('usuarios/{id}/roles', 'ACL\RoleUserController@roles')->name('usuarios.roles');
+            Route::get('roles/{id}/usuarios', 'ACL\RoleUserController@usuarios')->name('roles.usuarios');
+
+        /**
+             * Permission x Role
+             */
+            Route::get('roles/{id}/permissao/{idPermissao}/detach', 'ACL\PermissaoRoleController@detachPermissoesRole')->name('roles.permissoes.detach');
+            Route::post('roles/{id}/permissoes', 'ACL\PermissaoRoleController@attachPermissoesRole')->name('roles.permissoes.attach');
+            Route::any('roles/{id}/permissoes/create', 'ACL\PermissaoRoleController@permissoesDisponiveis')->name('roles.permissoes.disponiveis');
+            Route::get('roles/{id}/permissoes', 'ACL\PermissaoRoleController@permissoes')->name('roles.permissoes');
+            Route::get('permissoes/{id}/role', 'ACL\PermissaoRoleController@roles')->name('permissoes.roles');
+
+            /**
+             * Roles
+             */
+            Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
+            Route::resource('roles', 'ACL\RoleController');
+
 
             /**
              * Routes empresas

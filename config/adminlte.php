@@ -237,8 +237,16 @@ return [
             'text' => 'Usuários',
             'url'  => 'admin/usuarios',
             'icon' => 'fas fa-users',
-             'can'  =>  'usuarios',
+            'can'  =>  'usuarios',
         ],
+
+        [
+            'text' => 'Cargos',
+            'url'  => 'admin/roles',
+            'icon' => 'fas fa-address-card',
+            'can'  =>  'roles',
+        ],
+
 
         [
             'text' => 'Categorias',

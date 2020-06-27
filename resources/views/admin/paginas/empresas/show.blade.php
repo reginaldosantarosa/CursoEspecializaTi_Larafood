@@ -35,10 +35,9 @@
             <h3>Assinatura</h3>
             <ul>
                 <li>
-                    <strong>Data Assinatura: </strong> {{ $empresa->inscricao }}
-                </li>
+                    <strong>Data Assinatura: </strong> {{ formatDateAndTime($empresa->inscricao, 'd/m/Y') }}
                 <li>
-                    <strong>Data Expira: </strong> {{ $empresa->expira_acesso }}
+                    <strong>Data Expira: </strong> {{ formatDateAndTime($empresa->expira_acesso, 'd/m/Y') }}
                 </li>
                 <li>
                     <strong>Identificador: </strong> {{ $empresa->inscricao_id }}

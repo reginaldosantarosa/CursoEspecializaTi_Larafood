@@ -1,21 +1,21 @@
 @extends('adminlte::page')
 
-@section('title', "Cargos disponíveis cargo {$user->name}")
+@section('title', "Cargos disponíveis cargo {$usuario->name}")
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('users.index') }}" class="active">Usuários</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('usuarios.index') }}" class="active">Usuários</a></li>
     </ol>
 
-    <h1>Cargos disponíveis cargo <strong>{{ $user->name }}</strong></h1>
+    <h1>Cargos disponíveis cargo <strong>{{ $usuario->nome }}</strong></h1>
 
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="{{ route('users.roles.available', $user->id) }}" method="POST" class="form form-inline">
+            <form action="{{ route('usuarios.roles.disponiveis', $usuario->id) }}" method="POST" class="form form-inline">
                 @csrf
                 <input type="text" name="filter" placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? '' }}">
                 <button type="submit" class="btn btn-dark">Filtrar</button>
@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <form action="{{ route('users.roles.attach', $user->id) }}" method="POST">
+                    <form action="{{ route('usuarios.roles.attach', $usuario->id) }}" method="POST">
                         @csrf
 
                         @foreach ($roles as $role)
@@ -39,7 +39,7 @@
                                     <input type="checkbox" name="roles[]" value="{{ $role->id }}">
                                 </td>
                                 <td>
-                                    {{ $role->name }}
+                                    {{ $role->nome }}
                                 </td>
                             </tr>
                         @endforeach

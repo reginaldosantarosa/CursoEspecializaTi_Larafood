@@ -17,11 +17,11 @@ class Permissao extends Model
         return $this->belongsToMany(Perfil::class);
     }
 
-    /*
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);
     }
 
-    */
+
 }

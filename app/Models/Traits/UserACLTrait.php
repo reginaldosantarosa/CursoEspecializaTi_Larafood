@@ -6,12 +6,11 @@ use App\Models\Empresa;
 
 trait UserACLTrait
 {
-
+/*
     public function permissoes(): array
     {
         $empresa = $this->empresa;
         $plano = $empresa->plano;
-
         $permissoes = [];
 
         foreach ($plano->perfis as $perfil) {
@@ -19,12 +18,10 @@ trait UserACLTrait
                 array_push($permissoes, $permissao->nome);
             }
         }
-
         return $permissoes;
     }
+*/
 
-
-    /*
     public function permissoes(): array
     {
         $permissoesPlano = $this->permissoesPlano();
@@ -39,7 +36,7 @@ trait UserACLTrait
 
         return $permissoes;
     }
-*/
+
     public function permissoesPlano(): array
     {
         // $empresa = $this->tenant;
@@ -48,8 +45,8 @@ trait UserACLTrait
         $plano = $empresa->plano;
 
         $permissoes = [];
-        foreach ($plano->profiles as $profile) {
-            foreach ($profile->permissoes as $permissao) {
+        foreach ($plano->perfis as $perfil) {
+            foreach ($perfil->permissoes as $permissao) {
                 array_push($permissoes, $permissao->name);
             }
         }

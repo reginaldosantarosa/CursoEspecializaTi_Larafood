@@ -8,19 +8,16 @@ class Perfil extends Model
 {
     protected $fillable = ['nome', 'descricao'];
 
-    /**
-     * Get Permissoes
-     */
+
     public function permissoes()    {
 
-        return $this->belongsToMany(Permissao::class);  // u perfil de muitas permissoes, uma permissao em muitos perfis
+        return $this->belongsToMany(Permissao::class);  // Um perfil  possui varias permissoes
     }
 
     public function planos()
     {
-        return $this->belongsToMany(Plano::class);
+        return $this->belongsToMany(Plano::class); //Um perfil pertence varios planos
     }
-
 
     public function permissoesDisponiveis($filter = null)
     {
@@ -29,18 +26,8 @@ class Perfil extends Model
             $query->select('perfil_permissao.permissao_id');
             $query->from('perfil_permissao');
             $query->whereRaw("perfil_permissao.perfil_id={$this->id}");
-        })
+        })->paginate();
 
-
-         //   ->where(function ($queryFilter) use ($filter) {
-           //     if ($filter)
-             //       $queryFilter->where('permissaos.nome', 'LIKE', "%{$filter}%");
-           // })
-
-            // toSql();
-            ->paginate();
-
-        //dd($permissoes);
         return $permissoes;
     }
 

@@ -16,7 +16,7 @@ class PermissaoPerfilController extends Controller
     {
     $this->perfil = $perfil;
     $this->permissao = $permissao;
-    //$this->middleware(['can:perfis']);
+    $this->middleware(['can:perfis']);
     }
 
 
@@ -81,14 +81,14 @@ class PermissaoPerfilController extends Controller
 
     public function detachPermissaoPerfil($idPerfil, $idPermissao)
     {
-    $perfil = $this->perfil->find($idPerfil);
-    $permissao = $this->permissao->find($idPermissao);
+        $perfil = $this->perfil->find($idPerfil);
+        $permissao = $this->permissao->find($idPermissao);
 
-    if (!$perfil || !$permissao) {
-    return redirect()->back();
-    }
+        if (!$perfil || !$permissao) {
+             return redirect()->back();
+        }
 
-    $perfil->permissoes()->detach($permissao);
+        $perfil->permissoes()->detach($permissao);
         return redirect()->route('perfis.permissoes', $perfil->id);
     }
 

@@ -8,21 +8,28 @@ class Plano extends Model
 {
     protected $fillable = ['nome', 'url', 'preco', 'descricao'];
 
+    public function perfis()
+    {
+        return $this->belongsToMany(Perfil::class); //Um plano possui variso perfis
+    }
+
+    public function empresas()
+    {
+        return $this->hasMany(Empresa::class); //Um Plano possui muitos empresas
+    }
+
+    public function detalhes()
+    {
+        return $this->hasMany(DetalhesPlano::class); //Uum plano ṕossui varios detalhes
+    }
 
     public function search($filter = null)
     {
         $resultados = $this->where('nome', 'LIKE', "%{$filter}%")
             ->orWhere('descricao', 'LIKE', "%{$filter}%")
             ->paginate();
-
         return $resultados;
     }
-
-    public function detalhes()
-    {
-        return $this->hasMany(DetalhesPlano::class); /*um plano pertennce unico detlahe*/
-    }
-
 
     public function perfisDisponiveis($filter = null)
     {
@@ -41,15 +48,7 @@ class Plano extends Model
     }
 
 
-    public function perfis()
-    {
-        return $this->belongsToMany(Perfil::class);
-    }
 
-    public function empresas()
-    {
-        return $this->hasMany(Empresa::class);
-    }
 
 
 }

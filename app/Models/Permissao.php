@@ -9,18 +9,15 @@ class Permissao extends Model
     protected $fillable = ['nome', 'descricao'];
 
 
-    /**
-     * Get Perfis
-     */
     public function perfis()
     {   // return $this->belongsToMany(Perfil::class, 'perfil_permissao');
-        return $this->belongsToMany(Perfil::class);
+        return $this->belongsToMany(Perfil::class); //Uma permissao pertence a varios perfis
     }
 
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class); //Ume Permissão  possui varios cargos/roles
     }
 
 

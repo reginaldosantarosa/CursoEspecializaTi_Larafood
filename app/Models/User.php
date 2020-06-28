@@ -42,9 +42,13 @@ class User extends Authenticatable
 
     public function empresa()
     {
-        return $this->belongsTo(Empresa::class);
+        return $this->belongsTo(Empresa::class); // Usuario pertence a uma empresa
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class); //Usuario possui muitos cargos
+    }
 
     //criando um filtro via escopo local
     public function scopeEmpresaUsuario(Builder $query)
@@ -52,27 +56,12 @@ class User extends Authenticatable
         return $query->where('empresa_id', auth()->user()->empresa_id);
     }
 
-
-
-    /**
-     * Get Roles
-     */
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-
-    /**
-     * Roles not linked with this user
-     */
-
-
-    public function rolesDisponiveis($filter = null)
+     public function rolesDisponiveis($filter = null)
     {
         $roles = Role::whereNotIn('roles.id', function($query) {
-            $query->select('role_user.role_id');
-            $query->from('role_user');
-            $query->whereRaw("role_user.user_id={$this->id}");
+                     $query->select('role_user.role_id');
+                     $query->from('role_user');
+                     $query->whereRaw("role_user.user_id={$this->id}");
         })
             ->where(function ($queryFilter) use ($filter) {
                 if ($filter)

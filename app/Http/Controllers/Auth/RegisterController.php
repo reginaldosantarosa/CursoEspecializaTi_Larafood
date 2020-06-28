@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Empresa\Events\EmpresaCreated;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Services\EmpresaService;
@@ -69,8 +70,7 @@ class RegisterController extends Controller
 
         $empresaService = app(EmpresaService::class);
         $user = $empresaService->make($plano, $data);
-      //event(new TenantCreated($user));
-
+        event(new EmpresaCreated($user));
         return $user;
 
           /*

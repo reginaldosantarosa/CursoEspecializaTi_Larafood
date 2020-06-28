@@ -13,14 +13,13 @@ class PermissaoController extends Controller
     public function __construct(Permissao $permissao)
     {
         $this->repository = $permissao;
-
-       // $this->middleware(['can:permissoes']);''
+        $this->middleware(['can:permissoes']);
     }
 
 
     public function index()
     {
-        $permissoes = $this->repository->paginate();
+        $permissoes = $this->repository->orderby('nome')-> paginate();
 
         return view('admin.paginas.permissoes.index', compact('permissoes'));
     }
@@ -39,12 +38,7 @@ class PermissaoController extends Controller
         return redirect()->route('permissoes.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         if (!$permissao = $this->repository->find($id)) {
@@ -76,12 +70,7 @@ class PermissaoController extends Controller
         return redirect()->route('permissoes.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         if (!$permissao = $this->repository->find($id)) {

@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class DetalhesPlano extends Model
 {
     protected $fillable = ['nome'];
-    public function plano()    /*olha em relação ao metodo: muitos para um*/
+
+    public function plano()
     {
-        $this->belongsTo(Plano::class);   /*detalhe de plano pode pertencer a varios planos*/
+        $this->belongsTo(Plano::class);   //Um detalhesDePlano pertence a um plano
     }
 }

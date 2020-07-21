@@ -10,7 +10,7 @@ class Plano extends Model
 
     public function perfis()
     {
-        return $this->belongsToMany(Perfil::class); //Um plano possui variso perfis
+        return $this->belongsToMany(Perfil::class); //Um plano pertence a muitos perfis
     }
 
     public function empresas()

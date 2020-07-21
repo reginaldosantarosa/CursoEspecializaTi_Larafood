@@ -15,6 +15,7 @@ class CreateMesasTable extends Migration
     {
         Schema::create('mesas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('uuid');
             $table->unsignedBigInteger('empresa_id');
             $table->string('identificacao')->unique();
             $table->string('descricao')->nullable();

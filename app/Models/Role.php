@@ -13,7 +13,6 @@ class Role extends Model
         return $this->belongsToMany(Permissao::class);
     }
 
-
     public function users()
     {
         return $this->belongsToMany(User::class); //Um Role possui varias usuarios

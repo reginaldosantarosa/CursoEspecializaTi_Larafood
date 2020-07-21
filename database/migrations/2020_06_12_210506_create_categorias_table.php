@@ -15,6 +15,7 @@ class CreateCategoriasTable extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('uuid');
             $table->unsignedBigInteger('empresa_id');
             $table->string('nome')->unique();
             $table->string('url')->unique();
@@ -36,6 +37,6 @@ class CreateCategoriasTable extends Migration
     public function down()
     {
         Schema::dropIfExists('categorias');
-        Schema::dropIfExists('categorias');
+
     }
 }

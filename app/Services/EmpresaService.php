@@ -3,11 +3,32 @@
 namespace App\Services;
 
 use App\Models\Plano;
+use App\Repositories\Contracts\EmpresaRepositoryInterface;
 use Illuminate\Support\Str;
 
 class EmpresaService
 {
     private $plano, $data = [];
+    private $repository;
+
+    public function __construct(EmpresaRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function getAllEmpresas(int $per_page)
+    {
+        return $this->repository->getAllEmpresas($per_page);
+
+    }
+
+    public function getEmpresaByUuid(string $uuid)
+    {
+        return $this->repository->getEmpresaByUuid($uuid);
+    }
+
+
+
     public function make(Plano $plano, array $data)
     {
         $this->plano = $plano;

@@ -3,11 +3,15 @@
 namespace App\Providers;
 
 use App\Models\Categoria;
+use App\Models\Cliente;
 use App\Models\Empresa;
+use App\Models\Mesa;
 use App\Models\Plano;
 use App\Models\Produto;
 use App\Observers\CategoriaObserver;
+use App\Observers\ClienteObserver;
 use App\Observers\EmpresaObserver;
+use App\Observers\MesaObserver;
 use App\Observers\PlanoObserver;
 use App\Observers\ProdutoObserver;
 use Illuminate\Support\ServiceProvider;
@@ -21,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
@@ -35,5 +39,7 @@ class AppServiceProvider extends ServiceProvider
         Empresa::observe(EmpresaObserver::class);
         Categoria::observe(CategoriaObserver::class);
         Produto::observe(ProdutoObserver::class);
+        Mesa::observe(MesaObserver::class);
+        Cliente::observe(ClienteObserver::class);
     }
 }

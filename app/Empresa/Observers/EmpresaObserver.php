@@ -16,7 +16,10 @@ class EmpresaObserver
     public function creating(Model $model)
     {
         $managerEmpresa = app(ManagerEmpresa::class);
-        $model->empresa_id = $managerEmpresa->getEmpresaIdentificacao();
+        $identificacao= $managerEmpresa->getEmpresaIdentificacao();
+
+        if ($identificacao)
+              $model->empresa_id = $identificacao;
 
     }
 }

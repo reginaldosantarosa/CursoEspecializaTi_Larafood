@@ -43,6 +43,7 @@ Route::prefix('admin')
         /**
              * Routes mesas
              */
+             Route::any('mesas/qrcode/{identificacao}', 'MesaController@qrcode')->name('mesas.qrcode');
              Route::any('mesas/search', 'MesaController@search')->name('mesas.search');
              Route::resource('mesas', 'MesaController');
 

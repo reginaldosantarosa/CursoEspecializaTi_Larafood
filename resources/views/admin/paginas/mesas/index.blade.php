@@ -26,7 +26,7 @@
                     <tr>
                         <th>Identify</th>
                         <th>Descrição</th>
-                        <th width="150">Ações</th>
+                        <th width="190">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,10 @@
                         <tr>
                             <td>{{ $mesa->identificacao }}</td>
                             <td>{{ $mesa->descricao }}</td>
-                            <td style="width=10px;">
+                            <td style="width=30px;">
+                                <a href="{{ route('mesas.qrcode', $mesa->identificacao) }}" class="btn btn-default" target="_blank">
+                                    <i class="fas fa-qrcode"></i>
+                                </a>
                                 <a href="{{ route('mesas.edit', $mesa->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('mesas.show', $mesa->id) }}" class="btn btn-warning">VER</a>
                             </td>

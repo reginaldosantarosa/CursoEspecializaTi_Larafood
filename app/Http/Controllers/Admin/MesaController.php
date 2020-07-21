@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\EmpresaFormRequest;
 use App\Http\Requests\StoreUpdateMesa;
 use App\Models\Mesa;
 use Illuminate\Http\Request;
@@ -88,5 +89,17 @@ class MesaController extends Controller
             ->paginate();
 
         return view('admin.paginas.mesas.index', compact('mesas', 'filters'));
+    }
+
+    public function qrcode($identificacao)
+    {
+        if (!$mesa = $this->repository->where('identificacao',$identificacao)->first()) {
+            return redirect()->back();
+        }
+
+        $empresa= auth()->user()->empresa;
+
+        $uri = env('URI_CLIENTE') ."/{$empresa->uuid}/{$mesa->uuid}" ;
+        return view('admin.paginas.mesas.qrcode', compact('uri'));
     }
 }

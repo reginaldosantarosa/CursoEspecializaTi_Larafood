@@ -10,12 +10,13 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
-        "jeroennoten/laravel-adminlte": "^3.1",
+        "jeroennoten/laravel-adminlte": "3.0",
         "laravel/framework": "^6.2",
         "laravel/sanctum": "^2.4",
         "laravel/telescope": "^3.5",
         "laravel/tinker": "^2.0",
-      "ext-http": "*"
+        "ext-http": "*",
+        "simplesoftwareio/simple-qrcode": "~2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",
@@ -24,7 +25,8 @@
         "laravel/ui": "^1.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^8.0"
+        "phpunit/phpunit": "^8.0",
+        "simplesoftwareio/simple-qrcode": "~2"
     },
     "config": {
         "optimize-autoloader": true,

@@ -17,7 +17,8 @@ class CreateMesasTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('uuid');
             $table->unsignedBigInteger('empresa_id');
-            $table->string('identificacao')->unique();
+            //$table->string('identificacao')->unique();
+            $table->string('identificacao');
             $table->string('descricao')->nullable();
             $table->timestamps();
 

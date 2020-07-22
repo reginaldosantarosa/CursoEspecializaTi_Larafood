@@ -17,8 +17,10 @@ class CreateProdutosTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('empresa_id');
             $table->uuid('uuid');
-            $table->string('titulo')->unique();
-            $table->string('flag')->unique();
+            //$table->string('titulo')->unique();
+            $table->string('flag');
+            $table->string('titulo');
+            //$table->string('flag')->unique();
             $table->string('imagem');
             $table->double('preco', 10, 2);
             $table->text('descricao');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Empresa\Rules\UniqueEmpresa;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreUpdateProduto extends FormRequest
@@ -26,9 +27,12 @@ class StoreUpdateProduto extends FormRequest
         $id = $this->segment(3);
 
         $rules = [
-            'titulo' => ['required', 'min:3', 'max:255', "unique:produtos,titulo,{$id},id"],
+            'titulo' => ['required', 'min:3', 'max:255'
+                ,new UniqueEmpresa('produtos', $id)],
+            //    "unique:produtos,titulo,{$id},id"],
             'descricao' => ['required', 'min:3', 'max:500'],
             'imagem' => ['required', 'image'],
+
             'preco' => "required|regex:/^\d+(\.\d{1,2})?$/",
         ];
 

@@ -17,8 +17,12 @@ class CreateCategoriasTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('uuid');
             $table->unsignedBigInteger('empresa_id');
-            $table->string('nome')->unique();
-            $table->string('url')->unique();
+            //$table->string('nome')->unique();
+            //$table->string('url')->unique();
+
+            $table->string('nome');
+            $table->string('url');
+
             $table->text('descricao');
             $table->timestamps();
 

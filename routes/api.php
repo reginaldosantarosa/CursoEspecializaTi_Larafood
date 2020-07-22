@@ -32,6 +32,8 @@ Route::group([
     Route::post('/pedidos', 'PedidoApiController@store');
     Route::get('/pedidos/{identify}', 'PedidoApiController@show');
 
+
+
 }
 );
 

@@ -24,8 +24,8 @@ class PedidoResource extends JsonResource
             'cliente' => $this->cliente_id ? new ClienteResource($this->cliente) : '',
             'mesa' => $this->mesa_id ? new MesaResource($this->mesa) : '',
             'produtos' => ProdutoResource::collection($this->produtos),
-            'comentario' =>$this->comentario,
-            //'evaluatons' => EvaluationResource::collection($this->evaluations),
+            //'comentario' =>$this->comentario,
+            'comentarios' => AvaliacaoResource::collection($this->comentario),
         ];
     }
 }

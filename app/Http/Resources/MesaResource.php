@@ -15,7 +15,7 @@ class MesaResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'identify' => $this->uuid,
+            'identificacao' => $this->uuid,
             'nome' => $this->identificacao,
             'descricao' => $this->descricao,
         ];

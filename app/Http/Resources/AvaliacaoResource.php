@@ -18,7 +18,7 @@ class AvaliacaoResource extends JsonResource
             'estrelas' => $this->estrelas,
             'comentario' => $this->comentario,
             'cliente' => new ClienteResource($this->cliente),
-            // 'pedido' => new PedidoResource($this->pedido),
+            // 'pedido' => new PedidoResource($this->pedido), //se nao vai entrar em loop
         ];
     }
 }

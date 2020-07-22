@@ -18,11 +18,11 @@ class EmpresaResource extends JsonResource
         //return parent::toArray($request);
         return [
             'id' => $this->id,
-            'name' => $this->nome,
-            'image' => $this->logo ? url("storage/{$this->logo}") : '',
+            'nome' => $this->nome,
+            'imagem' => $this->logo ? url("storage/{$this->logo}") : '',
             'uuid' => $this->uuid,
             'flag' => $this->url,
-            'contact' => $this->email,
+            'email' => $this->email,
             'date_created' => Carbon::parse($this->created_at)->format('d/m/Y'),
         ];
     }

@@ -11,16 +11,24 @@ use Tests\TestCase;
 
 class AvaliacaoTest extends TestCase
 {
-
+/*
         public function testErrorCreateNewEvaluation()
     {
         $pedido = 'fake_value';
         $response = $this->postJson("/auth/v1/pedidos/{$pedido}/avaliacoes");
+<<<<<<< HEAD:tests/Feature/AvaliacaoTest.php
         $response->dump();
         $response->assertStatus(401);
     }
 
 /*
+=======
+      //  $response->dump();
+        $response->assertStatus(401);
+    }
+
+*/
+>>>>>>> feature-api:tests/temp/AvaliacaoTest.php
 
         public function testCreateNewEvaluation()
     {
@@ -42,8 +50,16 @@ class AvaliacaoTest extends TestCase
             $payload,
             $headers
         );
+<<<<<<< HEAD:tests/Feature/AvaliacaoTest.php
       //  $response->dump();
         $response->assertStatus(201);
     }
 */
+=======
+        $response->dump();
+        $response->assertStatus(201);
+    }
+
+
+>>>>>>> feature-api:tests/temp/AvaliacaoTest.php
 }

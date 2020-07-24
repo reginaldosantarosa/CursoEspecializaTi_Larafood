@@ -42,8 +42,8 @@ class AppServiceProvider extends ServiceProvider
         Produto::observe(ProdutoObserver::class);
         Mesa::observe(MesaObserver::class);
         Cliente::observe(ClienteObserver::class);
-        Blade::if('admin', function () {
 
+        Blade::if('admin', function () {
             $user= auth()->user();
             return $user->isAdmin();
         });

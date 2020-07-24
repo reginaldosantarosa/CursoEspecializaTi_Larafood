@@ -116,10 +116,6 @@
             </div>
             <!-- /.info-box -->
         </div>
-
         @endadmin()
-
-
-
     </div>
 @stop

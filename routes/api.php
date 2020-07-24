@@ -44,7 +44,7 @@ Route::group(
     Route::post('/auth/logout', 'Api\Auth\AuthClienteController@logout');
 
     Route::post('/auth/v1/pedidos/{identificacaoPedido}/avaliacoes', 'Api\AvaliacaoApiController@store');
-    Route::get('/agit check uth/v1/meus-pedidos', 'Api\PedidoApiController@meusPedidos');
+    Route::get('/auth/v1/meus-pedidos', 'Api\PedidoApiController@meusPedidos');
     Route::post('/auth/v1/pedidos', 'Api\PedidoApiController@store');
 });
 

@@ -8,21 +8,16 @@ use Tests\TestCase;
 
 class RegistroTest extends TestCase
 {
-    /**
-     * Error create new client
-     *
-     * @return void
-     */
+
+
     public function testErrorCreateNewClient()
     {
         $payload = [
-            'name' => 'Carlos Client',
+            'nome' => 'Carlos Client',
             'email' => 'carlos@client.com.br',
         ];
 
         $response = $this->postJson('/api/auth/registro', $payload);
-        $response->dump();
-
         $response->assertStatus(422);
        //  ->assertExactJson([
       //       'message' => 'The given data was invalid.',
@@ -32,16 +27,10 @@ class RegistroTest extends TestCase
        //  ]);
     }
 
-
-    /**
-     * Success create new client
-     *
-     * @return void
-     */
     public function testSuccessCreateNewClient()
     {
         $payload = [
-            'nome' => 'Carlos Client',
+            'nome' => 'Carlos Client2',
             'email' => 'carlos@client.com.br',
             'password' => '123456',
         ];

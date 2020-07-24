@@ -24,7 +24,9 @@
     @else
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @endif
-	
+
+
+
     @yield('meta_tags')
 
     @if(config('adminlte.use_ico_only'))
@@ -48,6 +50,8 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
+
+    <link rel="icon" type="image/png"  href="{{url("img/favicon.png")}}">
 </head>
 <body class="@yield('classes_body')" @yield('body_data')>
 

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class CadastroTest extends TestCase
+class AutenticacaoTest extends TestCase
 {
     /**
      * A basic feature test example.
@@ -16,6 +16,7 @@ class CadastroTest extends TestCase
     public function testExample()
     {
         $response = $this->get('/');
+        //$response->dump();
 
         $response->assertStatus(200);
     }

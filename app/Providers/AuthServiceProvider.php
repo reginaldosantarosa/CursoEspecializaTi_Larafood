@@ -36,6 +36,8 @@ class AuthServiceProvider extends ServiceProvider
                 return $user->hasPermissao($permissao->nome);
             });
         }
+
+        //exemplo adiconaod curso
         Gate::define('owner', function(User $user, $object) {
             return $user->id === $object->user_id;
         });

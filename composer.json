@@ -26,8 +26,8 @@
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.0",
-        "simplesoftwareio/simple-qrcode": "~2",
-        "symfony/var-dumper": "^4.3"
+        "simplesoftwareio/simple-qrcode": "~2"
+
     },
     "config": {
         "optimize-autoloader": true,

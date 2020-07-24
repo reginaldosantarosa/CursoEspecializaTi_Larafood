@@ -113,7 +113,7 @@ Route::prefix('admin')
             Route::get('planos', 'PlanoController@index')->name('planos.index');
 
              //Home Dashboard
-             Route::get('/', 'PlanoController@index')->name('admin.index');
+             Route::get('/', 'DashboardController@home')->name('admin.index');
     });
 
 Auth::routes();

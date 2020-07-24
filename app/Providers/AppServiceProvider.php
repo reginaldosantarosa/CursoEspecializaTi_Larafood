@@ -14,6 +14,7 @@ use App\Observers\EmpresaObserver;
 use App\Observers\MesaObserver;
 use App\Observers\PlanoObserver;
 use App\Observers\ProdutoObserver;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -41,5 +42,10 @@ class AppServiceProvider extends ServiceProvider
         Produto::observe(ProdutoObserver::class);
         Mesa::observe(MesaObserver::class);
         Cliente::observe(ClienteObserver::class);
+        Blade::if('admin', function () {
+
+            $user= auth()->user();
+            return $user->isAdmin();
+        });
     }
 }

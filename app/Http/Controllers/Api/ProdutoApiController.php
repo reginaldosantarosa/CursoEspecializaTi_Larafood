@@ -19,6 +19,7 @@ class ProdutoApiController extends Controller
 
     public function produtosByEmpresa(EmpresaFormRequest $request)
     {
+
         $produtos = $this->produtoService->getProdutosByEmpresaId(
             $request->token_company,
             $request->get('categorias', [])

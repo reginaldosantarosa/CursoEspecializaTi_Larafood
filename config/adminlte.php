@@ -213,13 +213,13 @@ return [
             'text' => 'Home',
             'url'  => 'admin',
             'icon' => 'fas fa-tachometer-alt',
-            'can'  =>  'empresas',
+         //   'can'  =>  'empresas',
         ],
         [
             'text' => 'Empresas',
             'url'  => 'admin/empresas',
             'icon' => 'fas fa-building',
-            'can'  =>  'empresas',
+        //    'can'  =>  'empresas',
         ],
         [
             'text' => 'Planos',
@@ -231,27 +231,27 @@ return [
             'text' => 'Perfis',
             'url'  => 'admin/perfis',
             'icon' => 'fas fa-address-book',
-            'can'  =>  'perfis',
+          //  'can'  =>  'perfis',
         ],
 
         [
             'text' => 'Permissões',
             'url'  => 'admin/permissoes',
             'icon' => 'fas fa-lock',
-            'can'  =>  'permissoes',
+        //    'can'  =>  'permissoes',
         ],
         [
             'text' => 'Usuários',
             'url'  => 'admin/usuarios',
             'icon' => 'fas fa-users',
-            'can'  =>  'usuarios',
+        //    'can'  =>  'usuarios',
         ],
 
         [
             'text' => 'Cargos',
             'url'  => 'admin/roles',
             'icon' => 'fas fa-address-card',
-            'can'  =>  'roles',
+           // 'can'  =>  'roles',
         ],
 
 
@@ -259,20 +259,20 @@ return [
             'text' => 'Categorias',
             'url'  => 'admin/categorias',
             'icon' => 'fas fa-layer-group',
-            'can'  =>  'categorias',
+           // 'can'  =>  'categorias',
         ],
         [
             'text' => 'Produtos',
             'url'  => 'admin/produtos',
             'icon' => 'fas fa-hamburger',
-             'can'  =>  'produtos',
+            // 'can'  =>  'produtos',
         ],
 
         [
             'text' => 'Mesas',
             'url'  => 'admin/mesas',
             'icon' => 'fas fa-tablet',
-             'can'  =>  'mesas',
+            // 'can'  =>  'mesas',
         ],
 
     ],

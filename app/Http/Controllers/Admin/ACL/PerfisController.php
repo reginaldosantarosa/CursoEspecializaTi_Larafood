@@ -15,7 +15,7 @@ class PerfisController extends Controller
     public function __construct(Perfil $perfil)
     {
         $this->repository = $perfil;
-        $this->middleware(['can:perfis']);
+      //  $this->middleware(['can:perfis']);
     }
 
     public function index()

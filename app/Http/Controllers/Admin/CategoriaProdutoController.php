@@ -16,7 +16,7 @@ class CategoriaProdutoController extends Controller
     {
         $this->produto = $produto;
         $this->categoria = $categoria;
-        $this->middleware(['can:produtos']);
+       // $this->middleware(['can:produtos']);
     }
 
     public function categorias($idProduto)

@@ -25,11 +25,11 @@ trait UserACLTrait
     public function permissoes(): array
     {
         $permissoesPlano = $this->permissoesPlano();
-        $permissoesRole = $this->permissoesRole();
+        $permissoesCargo = $this->permissoesCargo();
 
         $permissoes = [];
 
-        foreach ($permissoesRole as $permissao) {
+        foreach ($permissoesCargo as $permissao) {
             if (in_array($permissao, $permissoesPlano))
                 array_push($permissoes, $permissao);
         }
@@ -54,9 +54,9 @@ trait UserACLTrait
         return $permissoes;
     }
 
-    public function permissoesRole(): array
+    public function permissoesCargo(): array
     {
-        $roles = $this->roles()->with('permissoes')->get();
+        $roles = $this->cargos()->with('permissoes')->get();
 
         $permissoes = [];
         foreach ($roles as $role) {

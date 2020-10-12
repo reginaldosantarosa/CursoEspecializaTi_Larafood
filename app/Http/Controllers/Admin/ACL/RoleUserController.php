@@ -16,7 +16,7 @@ class RoleUserController extends Controller
         $this->usuario = $usuario;
         $this->role = $role;
 
-        $this->middleware(['can:usuarios']);
+    //    $this->middleware(['can:usuarios']);
     }
 
     public function roles($idUser)

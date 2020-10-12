@@ -8,10 +8,11 @@
         <li class="breadcrumb-item active"><a href="{{ route('categorias.index') }}" class="active">Categorias</a></li>
     </ol>
 
-    <h1>Categorias
-        @can('add_categoria')
+    <h1>Categoriass
+      {{--  @can('add_categoria') --}}
             <a href="{{ route('categorias.create') }}" class="btn btn-dark">ADD</a>
-        @endcan
+        {{--@endcan
+       --}}
     </h1>
 @stop
 

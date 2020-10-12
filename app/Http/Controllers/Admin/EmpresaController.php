@@ -15,7 +15,7 @@ class EmpresaController extends Controller
     public function __construct(Empresa $empresa)
     {
         $this->repository = $empresa;
-        $this->middleware(['can:empresas']);
+       // $this->middleware(['can:empresas']);
     }
 
 

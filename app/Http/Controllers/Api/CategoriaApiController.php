@@ -20,12 +20,12 @@ class CategoriaApiController extends Controller
 
     public function categorasByEmpresa(EmpresaFormRequest $request)
     {
-        // if (!$request->token_company) {
-        //     return response()->json(['message' => 'Token Not Found'], 404);
-        // }
+         if (!$request->token_company) {
+             return response()->json(['message' => 'Token Not Found'], 404);
+         }
 
         $categorias = $this->categoriaService->getCategoriasByUuid($request->token_company);
-         dd($categorias);
+       //  dd($categorias);
         return CategoriaResource::collection($categorias);
     }
 

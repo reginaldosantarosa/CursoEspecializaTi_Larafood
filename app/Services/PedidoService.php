@@ -32,8 +32,8 @@ class PedidoService
     }
 
     public function getPedidoByIdentificacao(string $identificacao)
-    {
-        return $this->pedidoRepository->getPedidoByIdentificacao($identificacao);
+    {   
+            return $this->pedidoRepository->getPedidoByIdentificacao($identificacao);
     }
 
     public function createNovoPedido(array $pedido)

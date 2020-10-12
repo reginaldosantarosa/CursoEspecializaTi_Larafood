@@ -44,9 +44,11 @@ class PedidoRepository implements PedidoRepositoryInterface
         return $pedido;
     }
 
-    //verifica se a identificacaoc riada ja existe no banco
+    //verifica se a identificacaoc criada ja existe no banco
     public function getPedidoByIdentificacao(string $identificacao)
     {
+                
+
         return $this->entity
                         ->where('identificacao', $identificacao)
                         ->first();

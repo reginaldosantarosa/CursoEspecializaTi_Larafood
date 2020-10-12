@@ -15,7 +15,7 @@ class PermissaoRoleController extends Controller
     {
         $this->role = $role;
         $this->permissao = $permissao;
-        $this->middleware(['can:roles']);
+      //  $this->middleware(['can:roles']);
     }
 
     public function permissoes($idRole)

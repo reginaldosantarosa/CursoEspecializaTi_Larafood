@@ -16,7 +16,7 @@ class PlanoPerfilController extends Controller
     {
         $this->plano = $plano;
         $this->perfil = $perfil;
-        $this->middleware(['can:planos']);
+       // $this->middleware(['can:planos']);
     }
 
     public function perfis($idPlano)

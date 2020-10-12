@@ -14,8 +14,8 @@ class CategoriaController extends Controller
     public function __construct(Categoria $categoria)
     {
         $this->repository = $categoria;
-        $this->middleware(['can:categorias']);
-        //$this->middleware('can:categorias')->only(['i                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ndex']); oderia ver ometodo marcado
+       // $this->middleware(['can:categorias']);
+        //$this->middleware('can:categorias')->only(['index']); oderia ver ometodo marcado
     }
 
 
@@ -25,7 +25,7 @@ class CategoriaController extends Controller
 
         return view('admin.paginas.categorias.index', compact('categorias'));
     }
-                                                                                                                                                                                                                                                    
+
 
     public function create()
     {

@@ -15,7 +15,7 @@ class MesaController extends Controller
     public function __construct(Mesa $mesa)
     {
         $this->repository = $mesa;
-        $this->middleware(['can:mesas']);
+     //   $this->middleware(['can:mesas']);
     }
 
     public function index()

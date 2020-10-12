@@ -16,14 +16,14 @@ class ProdutoRepository implements ProdutoRepositoryInterface
 
     public function getProdutosByEmpresaId(int $idEmpresa, array $categorias)
     {
-        return DB::table($this->table)
+        return  DB::table($this->table)
                     ->join('categoria_produto', 'categoria_produto.produto_id', '=', 'produtos.id')
                     ->join('categorias', 'categoria_produto.categoria_id', '=', 'categorias.id')
                     ->where('produtos.empresa_id', $idEmpresa)
                     ->where('categorias.empresa_id', $idEmpresa)
                     ->where(function ($query) use ($categorias) {
                         if ($categorias != [])
-                            $query->whereIn('categorias.uuid', $categorias);
+                            $query->whereIn('categorias.url', $categorias);
                     })
                     ->select('produtos.*')
                     ->get();

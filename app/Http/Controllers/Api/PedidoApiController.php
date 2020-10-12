@@ -23,17 +23,18 @@ class PedidoApiController extends Controller
     }
 
     public function show($identificacao)
-    {
+    {    
         if (!$pedido = $this->pedidoService->getPedidoByIdentificacao($identificacao)) {
+             
             return response()->json(['message' => 'Not Found'], 404);
-        }
+        }     
 
-        return new PedidoResource($pedido);
+       return new PedidoResource($pedido);
     }
 
     public function meusPedidos()
     {
-        $pedidos = $this->pedidoService->pedidosByCliente();
+        $pedidos = $this->pedidoService->pedidosByCliente();     
         return PedidoResource::collection($pedidos);
     }
 }

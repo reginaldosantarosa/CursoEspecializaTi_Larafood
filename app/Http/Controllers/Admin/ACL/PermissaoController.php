@@ -13,7 +13,7 @@ class PermissaoController extends Controller
     public function __construct(Permissao $permissao)
     {
         $this->repository = $permissao;
-        $this->middleware(['can:permissoes']);
+       // $this->middleware(['can:permissoes']);
     }
 
 

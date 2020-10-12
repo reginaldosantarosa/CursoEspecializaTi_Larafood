@@ -16,7 +16,7 @@ class PermissaoPerfilController extends Controller
     {
     $this->perfil = $perfil;
     $this->permissao = $permissao;
-    $this->middleware(['can:perfis']);
+  //  $this->middleware(['can:perfis']);
     }
 
 

@@ -12,6 +12,7 @@ class AuthClienteController extends Controller
 {
     public function auth(Request $request)
     {
+        //dd($request->email,$request->nome);
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',

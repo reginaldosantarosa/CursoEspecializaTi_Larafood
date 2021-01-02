@@ -2,6 +2,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/',function(){
+    return response()->json(['message'=>'ok']);
+});
+
+
 Route::get('/teste',function(){
             $cliente=\App\Models\Cliente::first();
             $token=$cliente->createToken("token-teste");

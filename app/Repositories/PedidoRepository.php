@@ -51,7 +51,7 @@ class PedidoRepository implements PedidoRepositoryInterface
 
         return $this->entity
                         ->where('identificacao', $identificacao)
-                        ->first();
+                        ->first();                        
     }
 
     public function registroProdutosPedido(int $pedidoId, array $produtos)
@@ -84,7 +84,7 @@ class PedidoRepository implements PedidoRepositoryInterface
     {
         $pedidos = $this->entity
                             ->where('cliente_id', $idCliente)
-                            ->paginate();
+                            ->paginate(100);
 
         return $pedidos;
     }

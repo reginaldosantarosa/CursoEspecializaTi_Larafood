@@ -17,7 +17,8 @@ class PedidoApiController extends Controller
     }
 
     public function store(StorePedido $request)
-    {
+
+    {   
         $pedido = $this->pedidoService->createNovoPedido($request->all());
         return new PedidoResource($pedido);
     }

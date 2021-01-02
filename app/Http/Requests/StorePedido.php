@@ -38,7 +38,7 @@ class StorePedido extends FormRequest
             ],
             'produtos' => ['required'],
             'produtos.*.identificacao' => ['required', 'exists:produtos,uuid'],
-            'produtos.*.quantidade' => ['required', 'integer'],
+            //'produtos.*.quantidade' => ['required', 'integer'],
         ];
     }
 }

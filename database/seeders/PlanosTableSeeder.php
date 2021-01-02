@@ -1,5 +1,5 @@
 <?php
-
+namespace Database\Seeders;
 use App\Models\Plano;
 use Illuminate\Database\Seeder;
 

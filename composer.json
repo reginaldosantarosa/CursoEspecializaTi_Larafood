@@ -8,25 +8,28 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.3|^8.0",
         "ext-http": "*",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
         "jeroennoten/laravel-adminlte": "^3.0",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^8.12",
+        "laravel/legacy-factories": "^1.1",
         "laravel/sanctum": "^2.4",
-        "laravel/telescope": "^3.5",
-        "laravel/tinker": "^2.0",
+        "laravel/telescope": "^4.0",
+        "laravel/tinker": "^2.5",
+        "laravel/ui": "^3.1",
         "simplesoftwareio/simple-qrcode": "~2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",
-        "facade/ignition": "^2.0",
-        "fzaninotto/faker": "^1.9.1",
-        "laravel/ui": "^2.0",
-        "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5",
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.3.3",
         "simplesoftwareio/simple-qrcode": "~2"
 
     },
@@ -42,12 +45,11 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
+
 
         "files": [
             "app/Helpers/functions.php"

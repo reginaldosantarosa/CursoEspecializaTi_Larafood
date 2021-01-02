@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use App\Models\Categoria;
 use App\Models\Cliente;
 use App\Models\Empresa;
@@ -35,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    {   Paginator::useBootstrap();
         Plano::observe(PlanoObserver::class);
         Empresa::observe(EmpresaObserver::class);
         Categoria::observe(CategoriaObserver::class);

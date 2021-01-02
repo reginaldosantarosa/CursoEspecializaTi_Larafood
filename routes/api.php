@@ -6,12 +6,14 @@ Route::get('/',function(){
     return response()->json(['message'=>'ok']);
 });
 
-
+/*
 Route::get('/teste',function(){
             $cliente=\App\Models\Cliente::first();
             $token=$cliente->createToken("token-teste");
             dd($token->plainTextToken);
 });
+
+*/
 
 Route::post('/auth/registro', 'Api\Auth\RegistroController@store');
 Route::post('/auth/token', 'Api\Auth\AuthClienteController@auth');
